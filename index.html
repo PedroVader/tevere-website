@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- 🟢 CORRECTO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <html lang="es">
+
+    <!-- 🟢 SEO OK -->
+    <title>Tevere - Coctelería | Sabadell</title>
+    <meta name="description" content="Tevere, coctelería en Sabadell. Cócteles artesanales, ginebras premium, whisky, ron y shisha. Ambiente único en el corazón de la ciudad.">
+    <meta name="keywords" content="coctelería, Sabadell, cócteles, ginebra, whisky, ron, shisha, Tevere">
+  
+    <!-- 🟢 Leaflet correctamente implementado -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+            crossorigin=""></script>
+  
+    <!-- 🟢 Lucide OK -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  
+    <!-- 🟢 Google Fonts bien -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+    <!-- 🟢 Verificación de Google OK -->
+    <meta name="google-site-verification" content="EcbjhOSVyboN3y65LUIOz_3UW1i5NCs67MZNfQgL8QE" />
+  
+    <!-- 🟢 Tus estilos CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css"> 
+  
+    <!-- 🟢 Favicon completo -->
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  </head>  
+<body>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="logo-with-image">
+                <img src="images/logo-tevere.jpeg" alt="Tevere Logo" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#carta">Carta</a></li>
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#horario">Horario</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+            </ul>
+            
+            <!-- Menú Hamburguesa -->
+            <div class="hamburger-menu" id="hamburgerMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menú Móvil Desplegable -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#carta"><i data-lucide="wine" size="20"></i> Carta</a></li>
+            <li><a href="#historia"><i data-lucide="book-open" size="20"></i> Historia</a></li>
+            <li><a href="#horario"><i data-lucide="clock" size="20"></i> Horario</a></li>
+            <li><a href="#ubicacion"><i data-lucide="map-pin" size="20"></i> Ubicación</a></li>
+        </ul>
+    </div>
+
+    <!-- Overlay para cerrar el menú -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>TEVERE</h1>
+            <a href="#carta" class="cta-button">Ver Carta</a>
+        </div>
+    </section>
+
+    <!-- Carta -->
+    <section id="carta" class="section menu-section">
+        <div class="menu-intro fade-in">
+            <div class="section-subtitle">Nuestra Propuesta</div>
+            <h2><i data-lucide="wine" size="32"></i> Carta de Cócteles</h2>
+            <p>En Tevere, los sabores cobran vida. Nuestros cócteles de fruta natural son una celebración de lo auténtico: frutas frescas, combinaciones inesperadas y una explosión de matices que despiertan los sentidos.</p>
+        </div>
+
+        <!-- Categorías de la carta -->
+        <div class="menu-categories fade-in">
+            <button class="category-btn active" data-category="cocteles">
+                <i data-lucide="wine" size="18"></i> Cócteles
+            </button>
+            <button class="category-btn" data-category="sin-alcohol">
+                <i data-lucide="glass-water" size="18"></i> Sin Alcohol
+            </button>
+            <button class="category-btn" data-category="ginebras">
+                <i data-lucide="leaf" size="18"></i> Ginebras
+            </button>
+            <button class="category-btn" data-category="whisky">
+                <i data-lucide="flame" size="18"></i> Whisky y Ron
+            </button>
+            <button class="category-btn" data-category="vodka">
+                <i data-lucide="snowflake" size="18"></i> Vodka y Licores
+            </button>
+            <button class="category-btn" data-category="chupitos">
+                <i data-lucide="zap" size="18"></i> Chupitos
+            </button>
+        </div>
+        
+        <!-- Contenedor general de carta -->
+        <div class="menu-content-wrapper">
+            <div class="menu-grid fade-in" id="menu-items">
+                <!-- Aquí se inyectará dinámicamente la carta de cada categoría -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Historia -->
+    <section id="historia" class="section history-section">
+        <div class="section-header fade-in">
+            <div class="section-subtitle">Nuestra Esencia</div>
+            <h2><i data-lucide="book-open" size="32"></i> Historia</h2>
+        </div>
+        
+        <div class="history-content">
+            <div class="history-text fade-in">
+                <h2>Desde 1995</h2>                
+                <p>Durante un viaje a Roma, el río Tíber —Tevere en italiano— nos recordó al lago del Parc de Catalunya, justo donde hoy se encuentra nuestro local. Esa conexión, unida a nuestras raíces italianas, nos inspiró a dar nombre a nuestro proyecto: Bar Tevere.</p>
+                
+                <p>Nacimos en 1995 como una pequeña heladería con pizzas y tapas caseras. Con el tiempo, crecimos junto a nuestros clientes, transformando el espacio y ampliando nuestra propuesta. Así surgió nuestra pasión por los cócteles con fruta natural, que hoy forman parte esencial de la experiencia Tevere.</p>
+            </div>
+            <div class="history-image-container fade-in">
+                <div class="carousel">
+                  <div class="slides">
+                    <!-- Cada “.slide” corresponde a una imagen del carrusel -->
+                    <div class="slide">
+                      <picture>
+                        <img src="images/dj-tevere.jpg"
+                             alt="Jan en Tevere Sabadell - 1"
+                             loading="lazy">
+                      </picture>
+                    </div>
+                    <div class="slide">
+                      <picture>
+                        <img src="images/tevere-antigua-1.jpg"
+                             alt="Historia Tevere - 2"
+                             loading="lazy">
+                      </picture>
+                    </div>
+                    <div class="slide">
+                      <picture>
+                        <img src="images/musica-tevere.jpg"
+                             alt="Historia Tevere - 3"
+                             loading="lazy">
+                      </picture>
+                    </div>
+                    <!-- Agrega tantas .slide como imágenes quieras -->
+                  </div>
+              
+                  <!-- Botones de navegación -->
+                  <button class="carousel-btn prev-btn" aria-label="Anterior">&#10094;</button>
+                  <button class="carousel-btn next-btn" aria-label="Siguiente">&#10095;</button>
+              
+                  <!-- Indicadores (puntos) -->
+                  <div class="carousel-indicators">
+                    <span class="indicator active" data-index="0"></span>
+                    <span class="indicator" data-index="1"></span>
+                    <span class="indicator" data-index="2"></span>
+                    <!-- Añade un <span> extra por cada .slide adicional (ajusta data-index) -->
+                  </div>
+                </div>
+              </div>
+              
+        </div>
+    </section>
+
+    <!-- Herencia -->
+    <section id="herencia" class="section heritage-section">
+        <div class="heritage-card fade-in">
+            <div class="heritage-content">
+                <h3 class="heritage-title">Dos Generaciones de Pasión</h3>
+                <p class="heritage-text">
+                    Con dos generaciones en gastronomía y coctelería, en pleno Parc Catalunya de Sabadell, ofrecemos sabores excepcionales en un entorno natural. Desde nuestros inicios como heladería hasta convertirnos en una coctelería única, fusionamos fruta natural y maestría coctelera para crear experiencias que combinan tradición e innovación.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Horario -->
+    <section id="horario" class="section schedule-section">
+        <div class="section-header fade-in">
+            <div class="section-subtitle">Momentos Perfectos</div>
+            <h2><i data-lucide="clock" size="32"></i> Horarios</h2>
+        </div>
+        
+        <div class="schedule-content">
+            <div class="schedule-intro fade-in">
+              <h3>Horarios de apertura</h3>
+              <p>Estamos abiertos todos los días para ofrecerte un espacio donde disfrutar de buena compañía, tranquilidad y una selección cuidada de cócteles.</p>
+            </div>
+          
+            <div class="schedule-grid">
+              <div class="schedule-card fade-in">
+                <h4>Lunes a Viernes</h4>
+                <div class="schedule-time">17:00 - 02:30</div>
+                <p class="schedule-note">Perfecto para afterworks, copas y desconexión nocturna</p>
+              </div>
+            
+              <div class="schedule-card fade-in">
+                <h4>Sábado</h4>
+                <div class="schedule-time">23:00 - 02:30</div>
+                <p class="schedule-note">La noche cobra vida con música y buen ambiente</p>
+              </div>
+            
+              <div class="schedule-card fade-in">
+                <h4>Domingo</h4>
+                <div class="schedule-time">10:00 - 2:30</div>
+                <p class="schedule-note">Relájate desde el brunch hasta la última copa del día</p>
+              </div>
+            </div>            
+    </section>
+
+    <!-- Ubicación -->
+    <section id="ubicacion" class="section location-section">
+        <div class="section-header fade-in">
+            <div class="section-subtitle">Encuéntranos</div>
+            <h2><i data-lucide="map-pin" size="32"></i> Ubicación</h2>
+        </div>
+        
+        <div class="location-content">
+            <div class="location-info fade-in">
+                <h3>En el corazón de la ciudad</h3>
+                
+                <div class="location-details">
+                    <p><strong>Dirección</strong><br>
+                    Parc de Catalunya, 08206 Sabadell, Barcelona</p>
+                    
+                    <p><strong>Teléfono</strong><br>
+                    +34 601 16 62 57</p>
+                    
+                    <p><strong>Email</strong><br>
+                        <a href="mailto:teveresabadell@gmail.com" style="text-decoration: none; color: inherit;">
+                          teveresabadell@gmail.com
+                        </a></p>                          
+                </div>
+                
+                <p>Nos encontramos en el corazón del Parc Catalunya, rodeados de naturaleza y a pocos pasos del bullicio del centro de Sabadell. Un rincón ideal para desconectar y disfrutar de cócteles de fruta natural con sabores únicos.</p>
+            </div>
+            
+            <div class="location-map fade-in" id="leaflet-map" style="height: 400px; width: 100%;">
+                <!-- El mapa se cargará aquí -->
+            </div>            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Tevere. Todos los derechos reservados.</p>
+    </footer> 
+
+    <!-- JavaScript externos -->
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+    
+</body>
+</html>
