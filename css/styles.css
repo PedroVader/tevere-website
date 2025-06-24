@@ -1592,33 +1592,97 @@ a, button {
     transform: translateY(-2px);
   }
   
-  /* =============================================
-     RESPONSIVE: pantallas ≤ 768px
-     ============================================= */
   @media (max-width: 768px) {
-    /* En móvil, forzamos que .menu-navigation sea fila (row) */
+    .menu-item-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      width: 100%;
+    }
+  
+    .menu-item h3 {
+      font-size: 1.1rem;
+      width: 100%;
+      margin-bottom: 0.5rem;
+      word-break: break-word;
+      hyphens: auto;
+      line-height: 1.4;
+    }
+  
+    .menu-item .price {
+      font-size: 1.1rem;
+      color: var(--gold);
+      font-weight: 700;
+      align-self: flex-end;
+      margin-left: auto;
+    }
+  
+    .menu-item {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--light-cream);
+    }
+  
+    .menu-page-image {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: contain;
+      margin: 1rem auto;
+    }
+  
     .menu-navigation {
       flex-direction: row !important;
-      /* Si necesitas que “no rompa” la fila, quita flex-wrap: wrap */
       flex-wrap: nowrap;
-      overflow-x: auto; /* opcional: para scroll horizontal si se queda muy ajustado */
+      overflow-x: auto;
+      gap: 0.5rem;
+      scroll-snap-type: x mandatory;
     }
   
     .nav-btn {
       padding: 0.6rem 1rem;
       font-size: 0.85rem;
-      min-width: 45%;  /* dos botones ocupan ~50% de ancho cada uno */
-      justify-content: center;
+      min-width: 45%;
+      white-space: nowrap;
+      scroll-snap-align: start;
     }
-  
-    /* Ajuste para las imágenes en móvil */
-    .menu-page-image {
-      width: 100%;
-      max-width: 450px;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-      object-fit: contain;
-    }
+    
+    @media (max-width: 375px) {
+        .menu-item-header {
+          display: flex !important;
+          flex-direction: column !important;
+          align-items: flex-start !important;
+          gap: 0.4rem !important;
+          width: 100% !important;
+        }
+      
+        .menu-item h3 {
+          font-size: 1rem !important;
+          width: 100% !important;
+          line-height: 1.4 !important;
+          margin: 0 !important;
+          word-break: break-word !important;
+        }
+      
+        .menu-item .price {
+          font-size: 1.1rem !important;
+          color: var(--gold);
+          font-weight: 700;
+          align-self: flex-end;
+          width: 100%;
+          text-align: right;
+        }
+      
+        .menu-item {
+          padding: 1.4rem 1rem !important;
+        }
+      
+        .menu-item p {
+          font-size: 0.85rem;
+          line-height: 1.5;
+          margin-top: 0.5rem;
+        }
+      }      
   }
   
