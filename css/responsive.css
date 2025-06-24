@@ -1,45 +1,38 @@
-/* =============================================
+/* ================================
    MENÚ HAMBURGUESA Y MÓVIL
-   ============================================= */
+   ================================ */
 
-/* CSS para el menú hamburguesa - ARREGLADO */
-.hamburger-menu {
+   .hamburger-menu {
     display: none;
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-    padding: 0;
     z-index: 1001;
-    position: relative;
     width: 30px;
     height: 21px;
-}
-
-.hamburger-menu span {
+  }
+  
+  .hamburger-menu span {
     width: 100%;
     height: 3px;
     background-color: var(--green);
-    margin: 0;
-    transition: 0.4s ease;
     border-radius: 2px;
-    display: block;
-}
-
-/* Animación del menú hamburguesa */
-.hamburger-menu.active span:nth-child(1) {
+    transition: 0.4s ease;
+  }
+  
+  .hamburger-menu.active span:nth-child(1) {
     transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.hamburger-menu.active span:nth-child(2) {
+  }
+  
+  .hamburger-menu.active span:nth-child(2) {
     opacity: 0;
-}
-
-.hamburger-menu.active span:nth-child(3) {
+  }
+  
+  .hamburger-menu.active span:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* Menú móvil desplegable */
-.mobile-menu {
+  }
+  
+  .mobile-menu {
     position: fixed;
     top: 0;
     left: -100%;
@@ -48,44 +41,43 @@
     height: 100vh;
     background: var(--cream);
     box-shadow: 2px 0 15px rgba(0, 0, 0, 0.3);
-    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: left 0.4s ease;
     z-index: 1000;
     padding-top: 120px;
-}
-
-.mobile-menu.active {
+  }
+  
+  .mobile-menu.active {
     left: 0;
-}
-
-.mobile-menu ul {
+  }
+  
+  .mobile-menu ul {
     list-style: none;
-    padding: 0;
     margin: 0;
-}
-
-.mobile-menu li {
+    padding: 0;
+  }
+  
+  .mobile-menu li {
     border-bottom: 1px solid rgba(26, 60, 35, 0.1);
-}
-
-.mobile-menu a {
+  }
+  
+  .mobile-menu a {
     display: block;
     padding: 20px 30px;
     color: var(--green);
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 500;
-    transition: all 0.3s ease;
     font-family: 'Inter', sans-serif;
-}
-
-.mobile-menu a:hover {
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-menu a:hover {
     background-color: var(--light-cream);
     padding-left: 40px;
     color: var(--accent-green);
-}
-
-/* Overlay para cerrar el menú */
-.menu-overlay {
+  }
+  
+  .menu-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -96,395 +88,279 @@
     visibility: hidden;
     transition: all 0.4s ease;
     z-index: 999;
-}
-
-.menu-overlay.active {
+  }
+  
+  .menu-overlay.active {
     opacity: 1;
     visibility: visible;
-}
-
-/* =============================================
-   RESPONSIVE COMPLETO
-   ============================================= */
-
-/* Tablets grandes (768px - 991px) */
-@media (min-width: 768px) and (max-width: 991px) {
-    .nav-container {
-        padding: 0 2rem;
-    }
-    
+  }
+  
+  /* ================================
+     RESPONSIVE UNIVERSAL
+     ================================ */
+  
+  /* Mostrar menú hamburguesa para móviles y tablets */
+  @media (max-width: 991px) {
     .nav-links {
-        gap: 2rem;
+      display: none !important;
     }
-    
-    .nav-links a {
-        font-size: 0.9rem;
-    }
-    
-    .logo-with-image {
-        font-size: 1.6rem;
-        gap: 0.6rem;
-    }
-    
-    
-    .section {
-        padding: 6rem 0;
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-    
-    .heritage-card {
-        margin: 0 2rem;
-        padding: 2.5rem;
-    }
-    
-    .history-content,
-    .location-content {
-        gap: 4rem;
-    }
-    
-    .schedule-content {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-}
-
-/* Tablets pequeños (576px - 767px) */
-@media (min-width: 576px) and (max-width: 767px) {
-    .nav-container {
-        padding: 0 1.5rem;
-    }
-    
-    .logo-with-image {
-        font-size: 1.4rem;
-        gap: 0.5rem;
-    }
-    
-    
-    .section {
-        padding: 5rem 0;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-    }
-    
-    .heritage-card {
-        margin: 0 1.5rem;
-        padding: 2rem;
-    }
-    
-    .history-content,
-    .location-content,
-    .schedule-content {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .menu-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .menu-item {
-        padding: 2rem;
-    }
-    
-    .menu-categories {
-        flex-wrap: wrap;
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .category-btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.85rem;
-    }
-}
-
-/* Móviles (max-width: 575px) */
-@media (max-width: 575px) {
-    .nav-container {
-        padding: 0 1rem;
-    }
-    
-    .logo-with-image {
-        font-size: 1.3rem;
-        padding: 0.3rem;
-    }
-    
-    
-    .section {
-        padding: 2rem 0;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    
-    .heritage-card {
-        margin: 0 1rem;
-        padding: 1.5rem;
-        border-radius: 15px;
-    }
-    
-    .heritage-title {
-        font-size: 1.6rem;
-    }
-    
-    .heritage-text {
-        font-size: 1rem;
-        text-align: center;
-    }
-    
-    .history-content,
-    .location-content,
-    .schedule-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .history-image-container {
-        height: 250px;
-    }
-    
-    /* ===== ARREGLO ESPECÍFICO PARA LOS PRECIOS ===== */
-    .menu-item-header {
-        display: flex !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: flex-start !important;
-        gap: 1rem !important;
-        min-height: auto !important;
-        flex-wrap: nowrap !important;
-        width: 100% !important;
-        overflow: visible !important;
-    }
-    
-    .menu-item h3 {
-        font-size: 1.1rem !important;
-        max-width: 65% !important;
-        margin-bottom: 0 !important;
-        flex-shrink: 1 !important;
-        word-break: break-word !important;
-        hyphens: auto !important;
-        line-height: 1.4 !important;
-        overflow-wrap: break-word !important;
-        white-space: normal !important;
-    }
-    
-    .menu-item .price {
-        font-size: 1.2rem !important;
-        margin-left: auto !important;
-        color: var(--gold) !important;
-        font-weight: 700 !important;
-        flex-shrink: 0 !important;
-        white-space: nowrap !important;
-        text-align: right !important;
-        min-width: fit-content !important;
-        padding-left: 0.8rem !important;
-        align-self: flex-start !important;
-        line-height: 1.4 !important;
-        width: auto !important;
-        max-width: 30% !important;
-        overflow: visible !important;
-    }
-    
-    .menu-item {
-        padding: 2rem 1.2rem !important;
-        overflow: visible !important;
-    }
-
-    .menu-item p {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        margin-top: 1rem;
-    }
-    
-    .category-btn {
-        padding: 0.5rem 0.8rem;
-        font-size: 0.8rem;
-        margin: 0.1rem;
-        gap: 0.3rem;
-    }
-}
-
-/* Móviles muy pequeños (max-width: 360px) */
-@media (max-width: 360px) {
-    .logo-with-image {
-        font-size: 1.1rem;
-    }
-    
-    
-    .heritage-card {
-        margin: 0 0.8rem;
-        padding: 1.2rem;
-    }
-    
-    .heritage-title {
-        font-size: 1.3rem;
-    }
-    
-    .heritage-text {
-        font-size: 0.9rem;
-    }
-    
-    .section {
-        padding: 3.5rem 0;
-        padding-left: 0.8rem;
-        padding-right: 0.8rem;
-    }
-    
-    .menu-item h3 {
-        font-size: 1rem !important;
-        max-width: 60% !important;
-        line-height: 1.3 !important;
-    }
-    
-    .menu-item .price {
-        font-size: 1.1rem !important;
-        max-width: 35% !important;
-        padding-left: 0.6rem !important;
-    }
-    
-    .menu-item {
-        padding: 1.8rem 1rem !important;
-    }
-    
-    .menu-item p {
-        font-size: 0.85rem;
-        line-height: 1.4;
-    }
-    
-    .category-btn {
-        padding: 0.35rem 0.5rem;
-        font-size: 0.7rem;
-        margin: 0.05rem;
-    }
-    
-    .menu-categories {
-        padding: 0.3rem;
-    }
-}
-
-/* Móviles ultra pequeños (max-width: 320px) */
-@media (max-width: 320px) {
-    .logo-with-image {
-        font-size: 1rem;
-        gap: 0.3rem;
-    }
-    
-    
-    .nav-container {
-        padding: 0 0.8rem;
-    }
-    
-    .heritage-card {
-        margin: 0 0.5rem;
-        padding: 1rem;
-        border-radius: 12px;
-    }
-    
-    .heritage-title {
-        font-size: 1.2rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .heritage-text {
-        font-size: 0.85rem;
-        line-height: 1.6;
-    }
-    
-    .section {
-        padding: 3rem 0;
-        padding-left: 0.6rem;
-        padding-right: 0.6rem;
-    }
-    
-    .menu-item-header {
-        gap: 0.8rem !important;
-    }
-    
-    .menu-item h3 {
-        font-size: 0.95rem !important;
-        max-width: 55% !important;
-        line-height: 1.2 !important;
-    }
-    
-    .menu-item .price {
-        font-size: 1rem !important;
-        padding-left: 0.4rem !important;
-        font-weight: 800 !important;
-        max-width: 40% !important;
-    }
-    
-    .menu-item {
-        padding: 1.6rem 0.8rem !important;
-    }
-    
-    .menu-item p {
-        font-size: 0.8rem;
-        line-height: 1.4;
-        margin-top: 0.8rem;
-    }
-    
-    .category-btn {
-        padding: 0.3rem 0.4rem;
-        font-size: 0.65rem;
-        margin: 0.05rem;
-        gap: 0.2rem;
-    }
-    
-    .menu-categories {
-        padding: 0.2rem;
-        margin-bottom: 3rem;
-    }
-    
-    .history-image-container {
-        height: 200px;
-    }
-    
-    .hero-content {
-        padding: 0 1rem;
-    }
-    
-    .cta-button {
-        padding: 0.8rem 2rem;
-        font-size: 0.85rem;
-    }
-}
-
-/* =============================================
-   MOSTRAR MENÚ HAMBURGUESA - SOLO UNA VEZ
-   ============================================= */
-
-@media (max-width: 767px) {
-    .nav-links {
-        display: none !important;
-    }
-    
+  
     .hamburger-menu {
-        display: flex !important;
+      display: flex !important;
     }
-}
-
-/* Optimizaciones adicionales */
-.reduce-motion * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
+  }
+  
+  /* Tablets (>=768px hasta 991px) */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .nav-container {
+      padding: 0 2rem;
+    }
+  
+    .section {
+      padding: 6rem 2rem;
+    }
+  
+    .logo-with-image {
+      font-size: 1.6rem;
+      gap: 0.6rem;
+    }
+  
+    .heritage-card {
+      margin: 0 2rem;
+      padding: 2.5rem;
+    }
+  
+    .history-content,
+    .location-content,
+    .schedule-content {
+      gap: 4rem;
+    }
+  
+    .nav-links {
+      gap: 2rem;
+    }
+  
+    .nav-links a {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Tablets pequeños (576px a 767px) */
+  @media (min-width: 576px) and (max-width: 767px) {
+    .nav-container {
+      padding: 0 1.5rem;
+    }
+  
+    .section {
+      padding: 5rem 1.5rem;
+    }
+  
+    .logo-with-image {
+      font-size: 1.4rem;
+      gap: 0.5rem;
+    }
+  
+    .heritage-card {
+      margin: 0 1.5rem;
+      padding: 2rem;
+    }
+  
+    .menu-grid,
+    .history-content,
+    .location-content,
+    .schedule-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  
+    .menu-categories {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .category-btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.85rem;
+    }
+  }
+  
+  /* Móviles estándar (≤575px) */
+  @media (max-width: 575px) {
+    .nav-container {
+      padding: 0 1rem;
+    }
+  
+    .section {
+      padding: 2rem 1rem;
+    }
+  
+    .logo-with-image {
+      font-size: 1.3rem;
+    }
+  
+    .heritage-card {
+      margin: 0 1rem;
+      padding: 1.5rem;
+      border-radius: 15px;
+    }
+  
+    .heritage-title {
+      font-size: 1.6rem;
+    }
+  
+    .heritage-text,
+    .menu-item p {
+      font-size: 1rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+  
+    .menu-item-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: nowrap;
+      width: 100%;
+    }
+  
+    .menu-item h3 {
+      font-size: 1.1rem;
+      max-width: 65%;
+      line-height: 1.4;
+      overflow-wrap: break-word;
+    }
+  
+    .menu-item .price {
+      font-size: 1.2rem;
+      color: var(--gold);
+      font-weight: 700;
+      text-align: right;
+      max-width: 30%;
+    }
+  
+    .menu-item {
+      padding: 2rem 1.2rem;
+    }
+  
+    .category-btn {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.8rem;
+      margin: 0.1rem;
+    }
+  }
+  
+  /* Móviles pequeños (≤360px) */
+  @media (max-width: 360px) {
+    .logo-with-image {
+      font-size: 1.1rem;
+    }
+  
+    .heritage-card {
+      margin: 0 0.8rem;
+      padding: 1.2rem;
+    }
+  
+    .heritage-title {
+      font-size: 1.3rem;
+    }
+  
+    .heritage-text {
+      font-size: 0.9rem;
+    }
+  
+    .menu-item h3 {
+      font-size: 1rem;
+      max-width: 60%;
+    }
+  
+    .menu-item .price {
+      font-size: 1.1rem;
+      max-width: 35%;
+    }
+  
+    .menu-item {
+      padding: 1.8rem 1rem;
+    }
+  
+    .category-btn {
+      padding: 0.35rem 0.5rem;
+      font-size: 0.7rem;
+    }
+  }
+  
+  /* Móviles ultra pequeños (≤320px) */
+  @media (max-width: 320px) {
+    .logo-with-image {
+      font-size: 1rem;
+      gap: 0.3rem;
+    }
+  
+    .nav-container {
+      padding: 0 0.8rem;
+    }
+  
+    .heritage-card {
+      margin: 0 0.5rem;
+      padding: 1rem;
+      border-radius: 12px;
+    }
+  
+    .heritage-title {
+      font-size: 1.2rem;
+    }
+  
+    .menu-item h3 {
+      font-size: 0.95rem;
+      max-width: 55%;
+    }
+  
+    .menu-item .price {
+      font-size: 1rem;
+      max-width: 40%;
+    }
+  
+    .menu-item {
+      padding: 1.6rem 0.8rem;
+    }
+  
+    .menu-item p {
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+  
+    .category-btn {
+      padding: 0.3rem 0.4rem;
+      font-size: 0.65rem;
+    }
+  
+    .menu-categories {
+      padding: 0.2rem;
+    }
+  
+    .hero-content {
+      padding: 0 1rem;
+    }
+  
+    .cta-button {
+      padding: 0.8rem 2rem;
+      font-size: 0.85rem;
+    }
+  }
+  
+  /* ================================
+     ACCESIBILIDAD Y MOTION REDUCIDA
+     ================================ */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  
     .heritage-card,
     .menu-item,
     .logo-with-image {
-        transition: none;
+      transition: none !important;
     }
-    
-    .heritage-card:hover,
-    .logo-with-image:hover {
-        transform: none;
-    }
-    
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
+  }
+  
