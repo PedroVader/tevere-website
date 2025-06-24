@@ -190,6 +190,4 @@ function initializeAllAnimations() {
     initializeImageHandling();
     initializeMenuAnimations();
     initializeCategoryButtonEffects();
-    
-    console.log('✨ Todas las animaciones inicializadas correctamente');
-}
+    }

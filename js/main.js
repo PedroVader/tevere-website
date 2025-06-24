@@ -199,9 +199,7 @@ function initializeApp() {
         return;
     }
     
-    try {
-        Utils.log('🚀 Inicializando Verde & Crema...', 'info');
-        
+    try {        
         // Funcionalidades principales
         initializeNavbarEffects();
         initializeSmoothScrolling();
@@ -211,21 +209,16 @@ function initializeApp() {
         // Inicializar menú (desde menu.js)
         if (typeof initializeMenu === 'function') {
             initializeMenu();
-            Utils.log('Menú inicializado', 'success');
         }
         
         // Inicializar animaciones (desde animations.js)
         if (typeof initializeAllAnimations === 'function') {
             initializeAllAnimations();
-            Utils.log('Animaciones inicializadas', 'success');
         }
         
         // Funcionalidades opcionales
         initializeAnalytics();
-        handleErrors();
-        
-        Utils.log('✨ Verde & Crema cargado completamente', 'success');
-        
+        handleErrors();        
     } catch (error) {
         Utils.log(`Error durante la inicialización: ${error.message}`, 'error');
         console.error(error);
@@ -338,8 +331,6 @@ function bootstrap() {
     
     // Configurar Service Worker (opcional)
     // setupServiceWorker();
-    
-    Utils.log('🎉 Bootstrap completo - Verde & Crema listo!', 'success');
 }
 
 // Auto-inicialización cuando el script se carga
