@@ -120,7 +120,6 @@ const AppState = {
     // Actualizar categoría actual
     setCurrentCategory: (category) => {
         AppState.currentCategory = category;
-        Utils.log(`Categoría cambiada a: ${category}`, 'info');
     },
     
     // Obtener categoría actual
@@ -129,7 +128,6 @@ const AppState = {
     // Gestionar estado del menú móvil
     toggleMobileMenu: () => {
         AppState.isMenuOpen = !AppState.isMenuOpen;
-        Utils.log(`Menú móvil: ${AppState.isMenuOpen ? 'abierto' : 'cerrado'}`, 'info');
     }
 };
 
@@ -169,7 +167,6 @@ function initializePerformanceOptimizations() {
 function initializeAnalytics() {
     // Tracking básico de interacciones (sin servicios externos)
     const trackEvent = (eventName, properties = {}) => {
-        Utils.log(`Evento: ${eventName}`, 'info');
         // Aquí se podría integrar con Google Analytics, etc.
     };
     
@@ -220,7 +217,6 @@ function initializeApp() {
         initializeAnalytics();
         handleErrors();        
     } catch (error) {
-        Utils.log(`Error durante la inicialización: ${error.message}`, 'error');
         console.error(error);
     }
 }
@@ -306,10 +302,8 @@ function setupServiceWorker() {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/sw.js')
                 .then(registration => {
-                    Utils.log('Service Worker registrado', 'success');
                 })
                 .catch(error => {
-                    Utils.log('Error registrando Service Worker', 'warning');
                 });
         });
     }
