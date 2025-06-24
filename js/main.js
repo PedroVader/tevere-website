@@ -230,7 +230,6 @@ function initializeApp() {
  */
 function handleWindowResize() {
     const debouncedResize = Utils.debounce(() => {
-        Utils.log('Ventana redimensionada', 'info');
     }, 250);
     
     window.addEventListener('resize', debouncedResize);
