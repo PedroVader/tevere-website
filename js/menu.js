@@ -5,14 +5,14 @@
 // === 1) DATOS GLOBALES DEL MENÚ DE CARTAS ===
 const menuImages = {
     cocteles:        'Carta-Tevere-2025_page-0001.jpg',
-    'cocteles-2':    'Carta-Tevere-2025_page-0002.jpg',
-    'sin-alcohol':   'Carta-Tevere-2025_page-0003.jpg',
+    'cocteles-2':    'carta-alcohol.jpg',
+    'sin-alcohol':   'carta-sin-alcohol.jpg',
     ginebras:        'Carta-Tevere-2025_page-0004.jpg',
     whisky:          'Carta-Tevere-2025_page-0005.jpg',
     ron:             'Carta-Tevere-2025_page-0005.jpg', // misma página que whisky
     vodka:           'Carta-Tevere-2025_page-0006.jpg',
     licores:         'Carta-Tevere-2025_page-0006.jpg', // misma página que vodka
-    chupitos:        'Carta-Tevere-2025_page-0007.jpg',
+    chupitos:        'carta-chupitos.jpg',
     shisha:          null
   };
   

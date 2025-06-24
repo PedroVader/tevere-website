@@ -500,11 +500,11 @@
   .scroll-wrapper {
     display: flex;
     gap: 1rem;
-    animation: scroll-left 40s linear infinite;
+    animation: scroll-left 15s linear infinite;
   }
   
   .scroll-wrapper img {
-    max-height: 200px;
+    max-height: 250px;
     border-radius: 12px;
     flex-shrink: 0;
     object-fit: cover;
@@ -521,9 +521,9 @@
   }
   
   /* Responsive tuning */
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .scroll-wrapper img {
-      max-height: 140px;
+      max-height: 180px; /* Antes 140px */
     }
   }
   
@@ -537,7 +537,8 @@
     }
   
     .scroll-wrapper img {
-      max-height: 120px;
+      max-height: 200px; /* Antes 120px */
     }
+    
   }
   
