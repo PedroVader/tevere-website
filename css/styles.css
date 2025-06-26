@@ -1685,4 +1685,21 @@ a, button {
         }
       }      
   }
+
+  .popup-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--green, #1a3c23);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .popup-input:focus {
+    outline: none;
+    border-color: var(--accent-green, #3a6b4f);
+    box-shadow: 0 0 0 2px rgba(58, 107, 79, 0.2);
+  }
+  
   
