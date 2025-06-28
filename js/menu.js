@@ -12,7 +12,7 @@ const menuImages = {
     ron:             'Carta-Tevere-2025_page-0005.jpg', // misma página que whisky
     vodka:           'Carta-Tevere-2025_page-0006.jpg',
     licores:         'Carta-Tevere-2025_page-0006.jpg', // misma página que vodka
-    chupitos:        'carta-chupitos.jpg',
+    chupitos:        'carta-chupitos.jpeg',
     shisha:          null
   };
   

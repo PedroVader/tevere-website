@@ -238,12 +238,66 @@
     </footer> 
 
 
+    <!-- POPUP HTML
+<div id="tevere-popup" class="popup-overlay">
+  <div class="popup-container">
+    <div class="popup-content">
+      <button class="popup-close" onclick="closePopup()">×</button>
+
+      <div class="popup-header">
+        <div class="popup-icon">
+          <i data-lucide="wine" size="40"></i>
+        </div>
+        <h3>¡Bienvenido a Tevere!</h3>
+      </div>
+
+      <div class="popup-body">
+        <div class="popup-offer">
+          <span class="offer-badge">¡Únete ahora!</span>
+          <p>
+            Regístrate ahora para obtener las mejores promociones</p>
+        </div>
+
+        <form id="popup-form" class="popup-form">
+          <input type="text" name="nombre" placeholder="Tu nombre" required />
+          <input type="email" name="email" placeholder="Tu correo electrónico" required />
+          <button type="submit" class="btn-primary full">Unirme a Tevere</button>
+        </form>
+        </div>
+    </div>
+  </div>
+</div> -->
 
 
     <!-- JavaScript externos -->
     <script src="js/animations.js"></script>
     <script src="js/main.js"></script>
     <script src="js/menu.js"></script>
+
+    <script>
+      const form = document.getElementById('popup-form');
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const formData = new FormData(form);
+
+  // 🔁 Aquí pega tu URL real de Apps Script (la que generaste)
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxfr3pQuQLvZ35YdQcb_6-ho50S9ZFTI08Lyzj8v8LbuV0KAsDhW_LYcSjWn7SXbldql/exec';
+
+  fetch(scriptURL, { method: 'POST', body: formData })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      alert("¡Formulario enviado con éxito!");
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert("Hubo un error al enviar el formulario.");
+    });
+});
+    </script>
+    
     
 </body>
 </html>
